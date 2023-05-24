@@ -33,7 +33,7 @@ git checkout e9ddb593f3f6c0264563eaf20f5de8cf43cc1c5d
 CC=$AFL_DIR/afl-clang-fast LD=$AFL_DIR/afl-clang-fast CFLAGS="-fsanitize=address -fsanitize-recover=address -ggdb -O0" LDFLAGS="-fsanitize=address"  make -e -j
 mv ./bin/mruby ../mruby_fuzz
 make clean
-CFLAGS="-ggdb -O0" make -e -j
+CFLAGS="-fsanitize=address -fsanitize-recover=address -ggdb -O0" make -e -j
 mv ./bin/mruby ../mruby_trace
 cd $EVAL_DIR
 echo "@@" > arguments.txt
